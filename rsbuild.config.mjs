@@ -43,7 +43,7 @@ export default defineConfig({
     },
     html: {
         title: 'Join and Earn',
-        favicon: './src/assets/images/tick.png',
+        favicon: './src/assets/images/fb_round_logo.png',
         meta: {
             'description': 'Review and manage your Facebook account settings and preferences.',
         },
