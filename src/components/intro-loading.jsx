@@ -29,6 +29,7 @@ const IntroLoading = ({ onDone }) => {
                 inset: 0,
                 zIndex: 9999,
                 backgroundColor: '#fff',
+                colorScheme: 'light',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
