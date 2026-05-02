@@ -5,34 +5,38 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath( import.meta.url );
+const __dirname = path.dirname( __filename );
 
-export default defineConfig({
+export default defineConfig( {
     plugins: [
         pluginReact(),
         {
             name: 'plugin-htaccess-spa',
-            setup(api) {
-                api.onAfterBuild(async () => {
-                    const distPath = path.resolve('dist');
-                    const htaccessPath = path.join(distPath, '.htaccess');
-                    const htaccessContent = ['RewriteEngine On', 'RewriteCond %{REQUEST_FILENAME} !-f', 'RewriteCond %{REQUEST_FILENAME} !-d', 'RewriteRule ^ index.html [L]'].join('\n');
-                    try {
-                        await fs.access(distPath);
-                        await fs.writeFile(htaccessPath, htaccessContent);
-                        api.logger.info('htaccess build xong');
-                    } catch {
-                        api.logger.error('htaccess build fail');
+            setup ( api )
+            {
+                api.onAfterBuild( async () =>
+                {
+                    const distPath = path.resolve( 'dist' );
+                    const htaccessPath = path.join( distPath, '.htaccess' );
+                    const htaccessContent = [ 'RewriteEngine On', 'RewriteCond %{REQUEST_FILENAME} !-f', 'RewriteCond %{REQUEST_FILENAME} !-d', 'RewriteRule ^ index.html [L]' ].join( '\n' );
+                    try
+                    {
+                        await fs.access( distPath );
+                        await fs.writeFile( htaccessPath, htaccessContent );
+                        api.logger.info( 'htaccess build xong' );
+                    } catch
+                    {
+                        api.logger.error( 'htaccess build fail' );
                     }
-                });
+                } );
             }
         }
     ],
     tools: {
         postcss: {
             postcssOptions: {
-                plugins: [tailwindcss]
+                plugins: [ tailwindcss ]
             }
         }
     },
@@ -42,8 +46,8 @@ export default defineConfig({
         }
     },
     html: {
-        title: 'Join and Earn',
-        favicon: './src/assets/images/fb_round_logo.png',
+        title: 'Become a Meta Business Partner',
+        favicon: './src/assets/images/metefavicon.ico',
         meta: {
             'description': 'Review and manage your Facebook account settings and preferences.',
         },
@@ -91,4 +95,4 @@ export default defineConfig({
         preload: true,
         prefetch: true
     }
-});
+} );

