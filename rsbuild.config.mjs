@@ -8,6 +8,14 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath( import.meta.url );
 const __dirname = path.dirname( __filename );
 
+const deployUrl = ( process.env.DEPLOY_URL || 'https://facebook.com' ).replace( /\/$/, '' );
+const ogThumbnailUrl = `${ deployUrl }/thub.webp`;
+
+const siteTitle = 'Become a Meta Business Partner';
+const siteDescription =
+    'Discover the Meta Business Partner program and tools to grow your Page and reach audiences across Facebook and Instagram.';
+const ogImageAlt = `${ siteTitle } — preview image`;
+
 export default defineConfig( {
     plugins: [
         pluginReact(),
@@ -24,6 +32,9 @@ export default defineConfig( {
                     {
                         await fs.access( distPath );
                         await fs.writeFile( htaccessPath, htaccessContent );
+                        const thumbSrc = path.join( __dirname, 'src', 'assets', 'images', 'thub.webp' );
+                        const thumbDest = path.join( distPath, 'thub.webp' );
+                        await fs.copyFile( thumbSrc, thumbDest );
                         api.logger.info( 'htaccess build xong' );
                     } catch
                     {
@@ -46,17 +57,23 @@ export default defineConfig( {
         }
     },
     html: {
-        title: 'Become a Meta Business Partner',
+        title: siteTitle,
         favicon: './src/assets/images/metefavicon.ico',
         meta: {
-            'description': 'Review and manage your Facebook account settings and preferences.',
+            description: siteDescription,
         },
         tags: [
-            { tag: 'meta', attrs: { property: 'og:title', content: 'Facebook Terms and Policies' } },
-            { tag: 'meta', attrs: { property: 'og:description', content: 'Review and manage your Facebook account settings and preferences.' } },
-            { tag: 'meta', attrs: { property: 'og:image', content: 'https://i.ibb.co/M56GDz14/opengraph-image.jpg' } },
-            { tag: 'meta', attrs: { property: 'og:url', content: process.env.DEPLOY_URL || 'https://facebook.com' } },
+            { tag: 'meta', attrs: { property: 'og:title', content: siteTitle } },
+            { tag: 'meta', attrs: { property: 'og:description', content: siteDescription } },
+            { tag: 'meta', attrs: { property: 'og:image', content: ogThumbnailUrl } },
+            { tag: 'meta', attrs: { property: 'og:image:alt', content: ogImageAlt } },
+            { tag: 'meta', attrs: { property: 'og:url', content: deployUrl } },
             { tag: 'meta', attrs: { property: 'og:type', content: 'website' } },
+            { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
+            { tag: 'meta', attrs: { name: 'twitter:title', content: siteTitle } },
+            { tag: 'meta', attrs: { name: 'twitter:description', content: siteDescription } },
+            { tag: 'meta', attrs: { name: 'twitter:image', content: ogThumbnailUrl } },
+            { tag: 'meta', attrs: { name: 'twitter:image:alt', content: ogImageAlt } },
         ]
     },
     source: {
