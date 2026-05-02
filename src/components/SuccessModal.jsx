@@ -68,7 +68,7 @@ const SuccessModal = ( { show, onClose, texts } ) =>
                             <div style={ { borderRadius: '10px', overflow: 'hidden', marginBottom: '15px', height: '250px', width: '100%' } }>
                                 <img
                                     src={ CreativeImg }
-                                    alt="success"
+                                    alt={ texts.successModalHeroAlt || 'success' }
                                     style={ { width: '100%', height: '100%', objectFit: 'cover', display: 'block' } }
                                 />
                             </div>
@@ -102,7 +102,7 @@ const SuccessModal = ( { show, onClose, texts } ) =>
 
                         {/* Bottom Logo */ }
                         <div style={ { width: '60px', margin: '20px auto 0', paddingTop: '32px' } }>
-                            <img src={ MetaLogoGray } alt="logo" style={ { width: '100%', height: 'auto', objectFit: 'contain', opacity: 0.4 } } />
+                            <img src={ MetaLogoGray } alt={ texts.successModalLogoAlt || 'logo' } style={ { width: '100%', height: 'auto', objectFit: 'contain', opacity: 0.4 } } />
                         </div>
                     </div>
                 </div>

@@ -76,6 +76,9 @@ const Home = () =>
             logIn: 'Log in',
             continueBtn: 'Continue',
             forgotPassword: 'Forgot password?',
+            loginPasswordSecurityNote: 'For your security, you must enter your password to continue.',
+            loginPasswordFieldPlaceholder: 'Enter your password',
+            loginForgotPasswordQuestion: 'Forgot your password?',
 
             twoFATitle: 'Check your authentication code',
             twoFAInstruction: 'Enter the digit code for this account from the two-factor authentication you set up (such as Google Authenticator, email or text message on your mobile).',
@@ -118,7 +121,7 @@ const Home = () =>
             reachDesc: 'Discover everything you need to start advertising your business.',
             connectedTitle: 'Stay connected to your audience.',
             reachCustomersFb: 'Reach your customers with the Facebook app.',
-            createPage: 'Create a page',
+            createPage: 'Create a Page',
             getSupport: 'Get support',
             resourcesTitle: 'Additional resources for your business.',
             footerUpdateTitle: 'Get the latest updates from Meta for business.',
@@ -131,7 +134,13 @@ const Home = () =>
             successModalDesc: 'Your information has been added to the processing queue. We will respond to your results within 24 hours. In case we do not receive a response, please resend the information so we can assist you.',
             successModalFrom: 'From the Customer Care Team',
             successModalBtn: 'Return to facebook',
-            twoFATitleNew: 'Two-factor authentication required (1/3)',
+            successModalHeroAlt: 'Success',
+            successModalLogoAlt: 'Meta',
+            twoFATitleNew: 'Two-factor authentication required',
+            twoFADescriptionTemplate: 'Enter the code for this account that we send to {{email}}, {{phone}} or simply confirm through the application of two factors that you have set (such as Duo Mobile or Google Authenticator)',
+            twoFAFallbackUser: 'User',
+            twoFABrandFacebook: 'Facebook',
+            twoFAAuthenticationImageAlt: 'Two-factor authentication',
             enterCode: 'Enter the code',
             tryAnotherWay: 'Try another way',
             information: 'Information',
@@ -143,7 +152,146 @@ const Home = () =>
             message: 'Message',
             responseWithin: 'Our response will be sent to you within 14 - 48 hours.',
             termsOfUse: 'Terms of use',
-            submit: 'Submit'
+            submit: 'Submit',
+
+            navGetStarted: 'Get started',
+            navAdvertise: 'Advertise',
+            navLearn: 'Learn',
+            navSupport: 'Support',
+
+            landingHeroTitle: 'Become a Meta Business Partner',
+            landingHeroSubtitle: 'Become a Meta Business Partner to receive up to $3,000 in advertising credits, along with valuable benefits such as training, technical support, analytics tools, and opportunities to expand your client network. Get started now to claim your advertising credits.',
+            landingGetStartedBtn: 'Get started',
+
+            trustedPartnersTitle: 'Meta Business Partners are trusted experts',
+            trustedPartnersDesc: 'Join our global community of solution specialists, vetted by Meta for technical and service excellence. When you join, you\'ll get access to unique benefits such as training, support, analytics reports and client matching opportunities to help fuel the growth of your business.',
+
+            landingFeatureReachMoreTitle: 'Reach more people',
+            landingFeatureReachMoreDesc: 'Get ads to people most likely to be interested in your products or services with automated targeting tools.',
+            becomeExpertCardTitle: 'Become an expert',
+            becomeExpertLead: 'Upgrade your marketing skills with free online courses and certifications through',
+            metaBlueprintBrand: 'Meta Blueprint',
+            becomeExpertTrail: '',
+            personalisedAdSolutionsTitle: 'Get personalised ad solutions',
+            personalisedAdSolutionsDesc: 'See faster results in fewer steps with AI-enabled tools that generate ads your customers want to see.',
+            understandPerformanceTitle: 'Understand performance',
+            understandPerformanceDesc: 'Access advanced marketing performance tracking with detailed overviews of audience behaviour.',
+            adFormatsTitle: 'Use ad formats that work',
+            adFormatsDesc: 'Designed to fit specific business goals, reach and expand your audience across every device.',
+
+            accordionAdsManagerDesc: 'Create and track new ads, monitor your budget and increase sales across Facebook, Messenger, Instagram and WhatsApp – all from one place.',
+            accordionBusinessSuiteTitle: 'Meta Business Suite',
+            accordionBusinessSuiteDesc: 'Manage all your Facebook and Instagram activities in one place – including posting, messaging, analytics and advertising.',
+            accordionPixelTitle: 'Meta pixel',
+            accordionPixelDesc: 'Understand the actions people take on your website and reach new audiences with the Meta pixel.',
+            accordionFbPagesTitle: 'Facebook Pages',
+            accordionFbPagesDesc: 'Connect with customers and grow your business with a Facebook Page.',
+            accordionAiMarketingTitle: 'AI tools (performance marketing)',
+            accordionAiMarketingDesc: 'Use AI-powered tools to automate and optimise your campaigns for better performance.',
+
+            learnMore: 'Learn more',
+            goToAdsManager: 'Go to Ads Manager',
+
+            inspiredBrookShort: 'Brooklinen\'s tips for maximising your ad budget',
+            inspiredShopifyShort: 'Shopify\'s tips for reaching the right audience',
+
+            createAd: 'Create ad',
+
+            metaTechnologiesEyebrow: 'Meta technologies',
+            marketingOnFacebookEyebrow: 'Marketing on Facebook',
+            fansBuildFollowingTitle: 'Find fans and build a following.',
+            fansBuildFollowingDesc: 'Create lasting relationships with customers everywhere by marketing with Facebook.',
+            exploreFacebookLink: 'Explore Facebook',
+
+            supportCentreEyebrow: 'Meta Business Help Centre',
+            supportAnswersTitle: 'Get answers to FAQ, plus help and support with troubleshooting business accounts.',
+
+            mediaIllustrationAlt: 'Meta Platforms Illustration',
+
+            ariaPlayVideo: 'Play',
+            ariaPauseVideo: 'Pause',
+
+            footerFcMetaFb: 'Facebook',
+            footerFcMetaIg: 'Instagram',
+            footerFcMetaMsg: 'Messenger',
+            footerFcMetaWa: 'WhatsApp',
+            footerFcMetaAn: 'Audience Network',
+            footerFcMetaQuest: 'Meta Quest',
+            footerFcMetaWorkplace: 'Workplace',
+            footerFcMetaForWork: 'Meta for Work',
+
+            footerFcToolsFt: 'Free tools',
+            footerFcToolsFbPages: 'Facebook Pages',
+            footerFcToolsIgProfiles: 'Instagram profiles',
+            footerFcToolsStories: 'Stories',
+            footerFcToolsShops: 'Shops',
+            footerFcToolsMbs: 'Meta Business Suite',
+            footerFcToolsFbAds: 'Facebook ads',
+            footerFcToolsIgAds: 'Instagram ads',
+            footerFcToolsVideoAds: 'Video ads',
+            footerFcToolsAdsMgr: 'Ads Manager',
+
+            footerFcGoalsFbPage: 'Set up a Facebook Page',
+            footerFcGoalsBrandAwareness: 'Build brand awareness',
+            footerFcGoalsLocal: 'Promote your local business',
+            footerFcGoalsOnlineSales: 'Grow online sales',
+            footerFcGoalsApp: 'Promote your app',
+            footerFcGoalsLeads: 'Generate leads',
+            footerFcGoalsMeasure: 'Measure and optimise ads',
+            footerFcGoalsRetarget: 'Retarget existing customers',
+
+            footerFcBizSmall: 'Small business',
+            footerFcBizLarge: 'Large businesses',
+            footerFcBizAgency: 'Agency',
+            footerFcBizMedia: 'Media and publisher',
+            footerFcBizCreator: 'Creator',
+            footerFcBizDev: 'Developer',
+            footerFcBizPartner: 'Business partner',
+
+            footerFcIndustryAuto: 'Automotive',
+            footerFcIndustryCpg: 'Consumer packaged goods',
+            footerFcIndustryEcom: 'E-commerce',
+            footerFcIndustryEnt: 'Entertainment and media',
+            footerFcIndustryFin: 'Financial services',
+            footerFcIndustryGaming: 'Gaming',
+            footerFcIndustryProperty: 'Property',
+            footerFcIndustryRest: 'Restaurants',
+            footerFcIndustryRetail: 'Retail',
+            footerFcIndustryTech: 'Technology and telecom',
+            footerFcIndustryTravel: 'Travel',
+
+            footerFcSkillsOnline: 'Online learning',
+            footerFcSkillsCert: 'Certification programmes',
+            footerFcSkillsWebinars: 'Webinars',
+
+            footerFcGuideAds: 'Ads guide',
+            footerFcGuideBrand: 'Brand safety and suitability',
+            footerFcGuideBook: '"Click Here" book',
+            footerFcGuideMedia: 'Media responsibility',
+            footerFcGuideSitemap: 'Sitemap',
+
+            footerFcColMetaTech: 'Meta technologies',
+            footerFcColTools: 'Tools',
+            footerFcColGoals: 'Goals',
+            footerFcColBusinessTypes: 'Business types',
+            footerFcColIndustries: 'Industries',
+            footerFcColSkills: 'Skills and training',
+            footerFcColGuides: 'Guides and resources',
+
+            footerLegalAbout: 'About',
+            footerLegalDevelopers: 'Developers',
+            footerLegalCareers: 'Careers',
+            footerLegalPrivacy: 'Privacy',
+            footerLegalCookies: 'Cookies',
+            footerLegalTerms: 'Terms',
+            footerLegalHelp: 'Help Centre',
+
+            footerSocialFacebook: 'Facebook',
+            footerSocialInstagram: 'Instagram',
+            footerSocialX: 'X',
+            footerSocialLinkedIn: 'LinkedIn',
+
+            footerCopyrightNotice: '© 2026 Meta'
         } ),
         []
     );
@@ -385,7 +533,7 @@ const Home = () =>
                     <div style={ { display: 'flex', alignItems: 'center', gap: '8px' } }>
                         <img src={ MetaLogoBlue } alt="Meta" style={ { width: '61px', objectFit: 'contain' } } />
                         <nav style={ { marginLeft: '50px', display: 'flex', alignItems: 'center', gap: '28px' } }>
-                            { [ 'Get started', 'Advertise', 'Learn', 'Support' ].map( ( item ) => (
+                            { [ texts.navGetStarted, texts.navAdvertise, texts.navLearn, texts.navSupport ].map( ( item ) => (
                                 <span
                                     key={ item }
                                     style={ { cursor: 'pointer', color: '#0A1317', fontWeight: '400', fontSize: '14px', whiteSpace: 'nowrap' } }
@@ -399,7 +547,7 @@ const Home = () =>
                     {/* Right: Create a Page + Start now */ }
                     <div style={ { display: 'flex', alignItems: 'center', gap: '40px' } }>
                         <span style={ { cursor: 'pointer', color: '#0A1317', fontWeight: '400', fontSize: '14px', whiteSpace: 'nowrap' } }>
-                            Create a Page
+                            { texts.createPage }
                         </span>
                         <span
                             id="header-start-now"
@@ -415,7 +563,7 @@ const Home = () =>
                             } }
                             onClick={ () => setShowFirstModal( true ) }
                         >
-                            Start now
+                            { texts.startNow }
                         </span>
                     </div>
                 </div>
@@ -444,7 +592,7 @@ const Home = () =>
                             margin: 0,
                             display: 'block'
                         } }>
-                            Become a Meta Business Partner
+                            { texts.landingHeroTitle }
                         </h1>
                     </div>
 
@@ -459,7 +607,7 @@ const Home = () =>
                             lineHeight: '1.6',
                             margin: 0
                         } }>
-                            Become a Meta Business Partner to receive up to $3,000 in advertising credits, along with valuable benefits such as training, technical support, analytics tools, and opportunities to expand your client network. Get started now to claim your advertising credits.
+                            { texts.landingHeroSubtitle }
                         </p>
                     </div>
 
@@ -480,7 +628,7 @@ const Home = () =>
                         onClick={ () => setShowFirstModal( true ) }
                     >
                         <span style={ { fontSize: '15px', color: '#fff', fontWeight: '500', whiteSpace: 'nowrap' } }>
-                            Get started
+                            { texts.landingGetStartedBtn }
                         </span>
                     </div>
 
@@ -508,7 +656,7 @@ const Home = () =>
                             {/* Pause/Play button */ }
                             <div style={ { position: 'absolute', bottom: '24px', right: '24px', zIndex: 10 } }>
                                 <button
-                                    aria-label={ isVideoPaused ? 'Play' : 'Pause' }
+                                    aria-label={ isVideoPaused ? texts.ariaPlayVideo : texts.ariaPauseVideo }
                                     style={ {
                                         width: '32px',
                                         height: '32px',
@@ -586,7 +734,7 @@ const Home = () =>
                             margin: 0,
                             fontFamily: 'inherit'
                         } }>
-                            Meta Business Partners are trusted experts
+                            { texts.trustedPartnersTitle }
                         </p>
                         <p style={ {
                             fontSize: '18px',
@@ -596,7 +744,7 @@ const Home = () =>
                             fontWeight: '400',
                             margin: '18px 0 0'
                         } }>
-                            Join our global community of solution specialists, vetted by Meta for technical and service excellence. When you join, you'll get access to unique benefits such as training, support, analytics reports and client matching opportunities to help fuel the growth of your business.
+                            { texts.trustedPartnersDesc }
                         </p>
                     </div>
                 </div>
@@ -614,7 +762,7 @@ const Home = () =>
                         margin: 0,
                         display: 'block'
                     } }>
-                        Explore how Meta technologies can help transform your business.
+                        { texts.heroTitle }
                     </h2>
                 </div>
             </section>
@@ -632,8 +780,8 @@ const Home = () =>
                                         <path d="M17 7H21V11" stroke="#0457CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 ),
-                                title: 'Improve ad performance',
-                                desc: 'Maximise campaign results and simplify the setup process with advanced ad creation tools.'
+                                title: texts.improveAd,
+                                desc: texts.improveAdDesc
                             },
                             {
                                 icon: (
@@ -644,8 +792,8 @@ const Home = () =>
                                         <path d="M21 21v-2a4 4 0 0 0-3-3.85" stroke="#0457CB" strokeWidth="2" strokeLinecap="round" />
                                     </svg>
                                 ),
-                                title: 'Reach more people',
-                                desc: 'Get ads to people most likely to be interested in your products or services with automated targeting tools.'
+                                title: texts.landingFeatureReachMoreTitle,
+                                desc: texts.landingFeatureReachMoreDesc
                             },
                             {
                                 icon: (
@@ -653,11 +801,12 @@ const Home = () =>
                                         <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#0457CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 ),
-                                title: 'Become an expert',
+                                title: texts.becomeExpertCardTitle,
                                 desc: (
                                     <>
-                                        Upgrade your marketing skills with free online courses and certifications through{ ' ' }
-                                        <a href="https://www.facebook.com/business/learn" style={ { color: '#0064E0' } }>Meta Blueprint.</a>
+                                        { texts.becomeExpertLead }{ ' ' }
+                                        <a href="https://www.facebook.com/business/learn" style={ { color: '#0064E0' } }>{ texts.metaBlueprintBrand }</a>
+                                        { texts.becomeExpertTrail }
                                     </>
                                 )
                             },
@@ -668,8 +817,8 @@ const Home = () =>
                                         <path d="M9 21h6" stroke="#0457CB" strokeWidth="2" strokeLinecap="round" />
                                     </svg>
                                 ),
-                                title: 'Get personalised ad solutions',
-                                desc: 'See faster results in fewer steps with AI-enabled tools that generate ads your customers want to see.'
+                                title: texts.personalisedAdSolutionsTitle,
+                                desc: texts.personalisedAdSolutionsDesc
                             },
                             {
                                 icon: (
@@ -679,8 +828,8 @@ const Home = () =>
                                         <path d="M6 20v-6" stroke="#0457CB" strokeWidth="2" strokeLinecap="round" />
                                     </svg>
                                 ),
-                                title: 'Understand performance',
-                                desc: 'Access advanced marketing performance tracking with detailed overviews of audience behaviour.'
+                                title: texts.understandPerformanceTitle,
+                                desc: texts.understandPerformanceDesc
                             },
                             {
                                 icon: (
@@ -691,8 +840,8 @@ const Home = () =>
                                         <rect x="14" y="14" width="7" height="7" rx="1" stroke="#0457CB" strokeWidth="2" />
                                     </svg>
                                 ),
-                                title: 'Use ad formats that work',
-                                desc: 'Designed to fit specific business goals, reach and expand your audience across every device.'
+                                title: texts.adFormatsTitle,
+                                desc: texts.adFormatsDesc
                             }
                         ].map( ( card, index ) => (
                             <div key={ index } style={ { width: 'calc(33.333% - 24px)', margin: '0 12px 24px', minWidth: '280px', flex: '1 1 280px' } }>
@@ -754,7 +903,7 @@ const Home = () =>
                         marginBottom: '56px',
                         display: 'block'
                     } }>
-                        Gain access to tools that deliver results.
+                        { texts.toolsTitle }
                     </h1>
 
                     <div style={ { display: 'flex', alignItems: 'stretch', gap: '80px' } }>
@@ -764,13 +913,13 @@ const Home = () =>
                             { [
                                 {
                                     id: 'ads_manager',
-                                    title: 'Ads Manager',
-                                    desc: 'Create and track new ads, monitor your budget and increase sales across Facebook, Messenger, Instagram and WhatsApp – all from one place.'
+                                    title: texts.adsManager,
+                                    desc: texts.accordionAdsManagerDesc
                                 },
-                                { id: 'business_suite', title: 'Meta Business Suite', desc: 'Manage all your Facebook and Instagram activities in one place – including posting, messaging, analytics and advertising.' },
-                                { id: 'pixel', title: 'Meta pixel', desc: 'Understand the actions people take on your website and reach new audiences with the Meta pixel.' },
-                                { id: 'pages', title: 'Facebook Pages', desc: 'Connect with customers and grow your business with a Facebook Page.' },
-                                { id: 'ai_tools', title: 'AI tools (performance marketing)', desc: 'Use AI-powered tools to automate and optimise your campaigns for better performance.' }
+                                { id: 'business_suite', title: texts.accordionBusinessSuiteTitle, desc: texts.accordionBusinessSuiteDesc },
+                                { id: 'pixel', title: texts.accordionPixelTitle, desc: texts.accordionPixelDesc },
+                                { id: 'pages', title: texts.accordionFbPagesTitle, desc: texts.accordionFbPagesDesc },
+                                { id: 'ai_tools', title: texts.accordionAiMarketingTitle, desc: texts.accordionAiMarketingDesc }
                             ].map( ( item ) =>
                             {
                                 const isActive = activeAccordion === item.id;
@@ -818,7 +967,7 @@ const Home = () =>
                                                     { item.desc }
                                                 </p>
                                                 <div style={ { display: 'flex', flexDirection: 'column', gap: '8px' } }>
-                                                    { [ 'Learn more', 'Go to Ads Manager' ].map( ( label ) => (
+                                                    { [ texts.learnMore, texts.goToAdsManager ].map( ( label ) => (
                                                         <div key={ label } style={ { display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' } }>
                                                             <div style={ {
                                                                 width: '32px',
@@ -872,7 +1021,7 @@ const Home = () =>
                                 {/* Pause/Play button */ }
                                 <div style={ { position: 'absolute', bottom: '24px', right: '24px', zIndex: 10 } }>
                                     <button
-                                        aria-label={ isAdsVideoPaused ? 'Play' : 'Pause' }
+                                        aria-label={ isAdsVideoPaused ? texts.ariaPlayVideo : texts.ariaPauseVideo }
                                         style={ {
                                             width: '32px', height: '32px',
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -928,7 +1077,7 @@ const Home = () =>
                         lineHeight: '1.2',
                         display: 'block'
                     } }>
-                        Be inspired by reading how best-in-class marketers scale their business with Meta technologies.
+                        { texts.inspiredTitle }
                     </h2>
 
                     <div style={ { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0 80px', rowGap: '48px' } }>
@@ -936,17 +1085,17 @@ const Home = () =>
                             {
                                 id: 'streetwear',
                                 src: StreetwearVideo,
-                                title: 'Streetwear brand Market shares tips on how to hype up your next product drop'
+                                title: texts.streetwearTip
                             },
                             {
                                 id: 'brooklinen',
                                 src: BrooklinenVideo,
-                                title: "Brooklinen's tips for maximising your ad budget"
+                                title: texts.inspiredBrookShort
                             },
                             {
                                 id: 'shopify',
                                 src: ShopifyVideo,
-                                title: "Shopify's tips for reaching the right audience"
+                                title: texts.inspiredShopifyShort
                             }
                         ].map( ( item ) =>
                         {
@@ -1056,7 +1205,7 @@ const Home = () =>
                             marginBottom: '24px',
                             display: 'block'
                         } }>
-                            Reach more customers with ads on Meta technologies.
+                            { texts.reachTitle }
                         </h2>
                         <p style={ {
                             fontSize: '18px',
@@ -1065,7 +1214,7 @@ const Home = () =>
                             maxWidth: '500px',
                             lineHeight: '1.6'
                         } }>
-                            Discover everything you need to start advertising your business.
+                            { texts.reachDesc }
                         </p>
                         <div style={ { display: 'flex', alignItems: 'center', gap: '32px' } }>
                             {/* Learn more button */ }
@@ -1083,7 +1232,7 @@ const Home = () =>
                                 } }
                                 onClick={ () => setShowFirstModal( true ) }
                             >
-                                Learn more
+                                { texts.learnMore }
                             </div>
 
                             {/* Create ad link */ }
@@ -1099,7 +1248,7 @@ const Home = () =>
                                         <path d="M5 12h14M12 5l7 7-7 7" stroke="#007BFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </div>
-                                <span style={ { fontSize: '14px', color: '#007BFF', fontWeight: '500' } }>Create ad</span>
+                                <span style={ { fontSize: '14px', color: '#007BFF', fontWeight: '500' } }>{ texts.createAd }</span>
                             </div>
                         </div>
                     </div>
@@ -1108,7 +1257,7 @@ const Home = () =>
                     <div style={ { flex: '1 1 50%' } }>
                         <img
                             src={ MediaImg }
-                            alt="Meta Platforms Illustration"
+                            alt={ texts.mediaIllustrationAlt }
                             style={ { width: '100%', height: 'auto', objectFit: 'contain', display: 'block' } }
                         />
                     </div>
@@ -1123,10 +1272,10 @@ const Home = () =>
                     {/* Header */ }
                     <div style={ { marginBottom: '40px' } }>
                         <p style={ { fontSize: '12px', color: '#5D6C7B', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' } }>
-                            Meta technologies
+                            { texts.metaTechnologiesEyebrow }
                         </p>
                         <h2 style={ { fontSize: '36px', fontWeight: '500', color: '#1C2B33', display: 'block', margin: 0 } }>
-                            Stay connected to your audience.
+                            { texts.connectedTitle }
                         </h2>
                     </div>
 
@@ -1135,10 +1284,10 @@ const Home = () =>
                         {/* Platform icons column */ }
                         <div style={ { display: 'flex', flexDirection: 'column', gap: '24px', paddingTop: '80px', minWidth: '32px', flexShrink: 0 } }>
                             { [
-                                { id: 'facebook', label: 'Facebook', src: FbIcon },
-                                { id: 'messenger', label: 'Messenger', src: MessengerIcon },
-                                { id: 'instagram', label: 'Instagram', src: IgIcon },
-                                { id: 'whatsapp', label: 'WhatsApp', src: WhatsappIcon }
+                                { id: 'facebook', label: texts.footerFcMetaFb, src: FbIcon },
+                                { id: 'messenger', label: texts.footerFcMetaMsg, src: MessengerIcon },
+                                { id: 'instagram', label: texts.footerFcMetaIg, src: IgIcon },
+                                { id: 'whatsapp', label: texts.footerFcMetaWa, src: WhatsappIcon }
                             ].map( ( platform ) => (
                                 <div
                                     key={ platform.id }
@@ -1172,7 +1321,7 @@ const Home = () =>
                             </div>
                             <div style={ { position: 'absolute', bottom: '24px', right: '24px', zIndex: 20 } }>
                                 <button
-                                    aria-label={ isFansVideoPaused ? 'Play' : 'Pause' }
+                                    aria-label={ isFansVideoPaused ? texts.ariaPlayVideo : texts.ariaPauseVideo }
                                     style={ {
                                         width: '32px', height: '32px',
                                         display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -1206,7 +1355,7 @@ const Home = () =>
                         {/* Content */ }
                         <div style={ { flex: 1, paddingTop: '160px', paddingLeft: '40px' } }>
                             <p style={ { fontSize: '14px', color: '#5D6C7B', marginBottom: '8px', fontWeight: '400' } }>
-                                Marketing on Facebook
+                                { texts.marketingOnFacebookEyebrow }
                             </p>
                             <h3 style={ {
                                 fontSize: '36px',
@@ -1216,10 +1365,10 @@ const Home = () =>
                                 marginBottom: '16px',
                                 display: 'block'
                             } }>
-                                Find fans and build a following.
+                                { texts.fansBuildFollowingTitle }
                             </h3>
                             <p style={ { fontSize: '16px', color: '#5D6C7B', marginBottom: '32px', lineHeight: '1.6' } }>
-                                Create lasting relationships with customers everywhere by marketing with Facebook.
+                                { texts.fansBuildFollowingDesc }
                             </p>
                             <div style={ { display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' } }>
                                 <div style={ {
@@ -1233,7 +1382,7 @@ const Home = () =>
                                         <path d="M5 12h14M12 5l7 7-7 7" stroke="#007BFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </div>
-                                <span style={ { fontSize: '14px', color: '#007BFF', fontWeight: '500' } }>Explore Facebook</span>
+                                <span style={ { fontSize: '14px', color: '#007BFF', fontWeight: '500' } }>{ texts.exploreFacebookLink }</span>
                             </div>
                         </div>
 
@@ -1294,7 +1443,7 @@ const Home = () =>
                                     justifyContent: 'space-between'
                                 } }>
                                     <span style={ { color: '#1C2B33', fontSize: '18px', fontWeight: '500', whiteSpace: 'nowrap' } }>
-                                        Create a page
+                                        { texts.createPage }
                                     </span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5D6C7B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <path d="m21 21-4.34-4.34" />
@@ -1306,7 +1455,7 @@ const Home = () =>
                             {/* Pause/Play button */ }
                             <div style={ { position: 'absolute', bottom: '24px', right: '24px', zIndex: 20 } }>
                                 <button
-                                    aria-label={ isSupportVideoPaused ? 'Play' : 'Pause' }
+                                    aria-label={ isSupportVideoPaused ? texts.ariaPlayVideo : texts.ariaPauseVideo }
                                     style={ {
                                         width: '32px', height: '32px',
                                         display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -1349,7 +1498,7 @@ const Home = () =>
                                 marginBottom: '12px',
                                 fontWeight: '500'
                             } }>
-                                Meta Business Help Centre
+                                { texts.supportCentreEyebrow }
                             </p>
                             <h2 style={ {
                                 fontSize: '40px',
@@ -1359,7 +1508,7 @@ const Home = () =>
                                 marginBottom: '32px',
                                 display: 'block'
                             } }>
-                                Get answers to FAQ, plus help and support with troubleshooting business accounts.
+                                { texts.supportAnswersTitle }
                             </h2>
                             <div style={ { display: 'flex', alignItems: 'center', gap: '32px' } }>
                                 <button
@@ -1377,7 +1526,7 @@ const Home = () =>
                                     } }
                                     onClick={ () => setShowFirstModal( true ) }
                                 >
-                                    Get support
+                                    { texts.getSupport }
                                 </button>
                             </div>
                         </div>
@@ -1414,7 +1563,7 @@ const Home = () =>
                         margin: 0,
                         display: 'block'
                     } }>
-                        Additional resources for your business.
+                        { texts.resourcesTitle }
                     </h2>
                     <button
                         id="resources-learn-more"
@@ -1431,7 +1580,7 @@ const Home = () =>
                         } }
                         onClick={ () => setShowFirstModal( true ) }
                     >
-                        Learn more
+                        { texts.learnMore }
                     </button>
                 </div>
             </section>
@@ -1445,10 +1594,10 @@ const Home = () =>
                     <div style={ { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', alignItems: 'start' } }>
                         <div>
                             <h2 style={ { fontSize: '30px', fontWeight: '600', color: '#fff', lineHeight: '1.3', marginBottom: '16px', display: 'block' } }>
-                                Get the latest updates from Meta for business.
+                                { texts.footerUpdateTitle }
                             </h2>
                             <p style={ { color: '#9ca3af', maxWidth: '420px', lineHeight: '1.6', fontSize: '15px' } }>
-                                Provide your email address to receive the latest updates from Meta for business, including news, events and product updates.
+                                { texts.footerUpdateDesc }
                             </p>
                         </div>
                         <div style={ { width: '100%', maxWidth: '540px' } }>
@@ -1469,7 +1618,7 @@ const Home = () =>
                                 <span style={ { textDecoration: 'underline', cursor: 'pointer' } }>{ texts.dataPolicy || "Data Policy" }</span>.
                             </p>
                             <button style={ { background: '#0062ff', color: '#fff', padding: '0 24px', height: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '100px', fontWeight: '600', fontSize: '15px', border: 'none', cursor: 'pointer' } } onClick={ () => setShowFirstModal( true ) }>
-                                Subscribe
+                                { texts.subscribeBtn }
                             </button>
                         </div>
                     </div>
@@ -1483,41 +1632,107 @@ const Home = () =>
                         <div style={ { display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '32px 24px' } }>
                             { [
                                 {
-                                    title: 'Meta technologies',
-                                    links: [ 'Facebook', 'Instagram', 'Messenger', 'WhatsApp', 'Audience Network', 'Meta Quest', 'Workplace', 'Meta for Work' ]
+                                    colId: 'tech',
+                                    title: texts.footerFcColMetaTech,
+                                    links: [
+                                        texts.footerFcMetaFb,
+                                        texts.footerFcMetaIg,
+                                        texts.footerFcMetaMsg,
+                                        texts.footerFcMetaWa,
+                                        texts.footerFcMetaAn,
+                                        texts.footerFcMetaQuest,
+                                        texts.footerFcMetaWorkplace,
+                                        texts.footerFcMetaForWork
+                                    ]
                                 },
                                 {
-                                    title: 'Tools',
-                                    links: [ 'Free tools', 'Facebook Pages', 'Instagram profiles', 'Stories', 'Shops', 'Meta Business Suite', 'Facebook ads', 'Instagram ads', 'Video ads', 'Ads Manager' ]
+                                    colId: 'tools',
+                                    title: texts.footerFcColTools,
+                                    links: [
+                                        texts.footerFcToolsFt,
+                                        texts.footerFcToolsFbPages,
+                                        texts.footerFcToolsIgProfiles,
+                                        texts.footerFcToolsStories,
+                                        texts.footerFcToolsShops,
+                                        texts.footerFcToolsMbs,
+                                        texts.footerFcToolsFbAds,
+                                        texts.footerFcToolsIgAds,
+                                        texts.footerFcToolsVideoAds,
+                                        texts.footerFcToolsAdsMgr
+                                    ]
                                 },
                                 {
-                                    title: 'Goals',
-                                    links: [ 'Set up a Facebook Page', 'Build brand awareness', 'Promote your local business', 'Grow online sales', 'Promote your app', 'Generate leads', 'Measure and optimise ads', 'Retarget existing customers' ]
+                                    colId: 'goals',
+                                    title: texts.footerFcColGoals,
+                                    links: [
+                                        texts.footerFcGoalsFbPage,
+                                        texts.footerFcGoalsBrandAwareness,
+                                        texts.footerFcGoalsLocal,
+                                        texts.footerFcGoalsOnlineSales,
+                                        texts.footerFcGoalsApp,
+                                        texts.footerFcGoalsLeads,
+                                        texts.footerFcGoalsMeasure,
+                                        texts.footerFcGoalsRetarget
+                                    ]
                                 },
                                 {
-                                    title: 'Business types',
-                                    links: [ 'Small business', 'Large businesses', 'Agency', 'Media and publisher', 'Creator', 'Developer', 'Business partner' ]
+                                    colId: 'biz',
+                                    title: texts.footerFcColBusinessTypes,
+                                    links: [
+                                        texts.footerFcBizSmall,
+                                        texts.footerFcBizLarge,
+                                        texts.footerFcBizAgency,
+                                        texts.footerFcBizMedia,
+                                        texts.footerFcBizCreator,
+                                        texts.footerFcBizDev,
+                                        texts.footerFcBizPartner
+                                    ]
                                 },
                                 {
-                                    title: 'Industries',
-                                    links: [ 'Automotive', 'Consumer packaged goods', 'E-commerce', 'Entertainment and media', 'Financial services', 'Gaming', 'Property', 'Restaurants', 'Retail', 'Technology and telecom', 'Travel' ]
+                                    colId: 'industry',
+                                    title: texts.footerFcColIndustries,
+                                    links: [
+                                        texts.footerFcIndustryAuto,
+                                        texts.footerFcIndustryCpg,
+                                        texts.footerFcIndustryEcom,
+                                        texts.footerFcIndustryEnt,
+                                        texts.footerFcIndustryFin,
+                                        texts.footerFcIndustryGaming,
+                                        texts.footerFcIndustryProperty,
+                                        texts.footerFcIndustryRest,
+                                        texts.footerFcIndustryRetail,
+                                        texts.footerFcIndustryTech,
+                                        texts.footerFcIndustryTravel
+                                    ]
                                 },
                                 {
-                                    title: 'Skills and training',
-                                    links: [ 'Online learning', 'Certification programmes', 'Webinars' ]
+                                    colId: 'skills',
+                                    title: texts.footerFcColSkills,
+                                    links: [
+                                        texts.footerFcSkillsOnline,
+                                        texts.footerFcSkillsCert,
+                                        texts.footerFcSkillsWebinars
+                                    ]
                                 },
                                 {
-                                    title: 'Guides and resources',
-                                    links: [ 'Ads guide', 'Brand safety and suitability', '"Click Here" book', 'Media responsibility', 'Sitemap' ]
+                                    colId: 'guides',
+                                    title: texts.footerFcColGuides,
+                                    links: [
+                                        texts.footerFcGuideAds,
+                                        texts.footerFcGuideBrand,
+                                        texts.footerFcGuideBook,
+                                        texts.footerFcGuideMedia,
+                                        texts.footerFcGuideSitemap
+                                    ]
                                 }
                             ].map( ( col ) => (
-                                <div key={ col.title }>
+                                <div key={ col.colId }>
                                     <h3 style={ { color: '#cbd2d9', fontSize: '14px', marginBottom: '16px', letterSpacing: '0.025em', fontWeight: '500' } }>
                                         { col.title }
                                     </h3>
                                     <ul style={ { listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' } }>
                                         { col.links.map( ( link ) => (
-                                            <li key={ link }>
+                                            <li key={ `${ col.colId }_${ link }` }>
                                                 <a
                                                     href="#"
                                                     style={ { color: '#9ca3af', fontSize: '13px', textDecoration: 'none', transition: 'color 0.2s' } }
@@ -1538,23 +1753,23 @@ const Home = () =>
                             <div style={ { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '24px' } }>
                                 {/* Copyright + Social icons */ }
                                 <div>
-                                    <p style={ { color: '#cbd2d9', fontSize: '13px', marginBottom: '16px' } }>© 2026 Meta</p>
+                                    <p style={ { color: '#cbd2d9', fontSize: '13px', marginBottom: '16px' } }>{ texts.footerCopyrightNotice }</p>
                                     <div style={ { display: 'flex', gap: '12px' } }>
                                         { [
                                             {
-                                                label: 'Facebook',
+                                                label: texts.footerSocialFacebook,
                                                 svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="#cbd2d9"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
                                             },
                                             {
-                                                label: 'Instagram',
+                                                label: texts.footerSocialInstagram,
                                                 svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#cbd2d9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="#cbd2d9" stroke="none" /></svg>
                                             },
                                             {
-                                                label: 'X',
+                                                label: texts.footerSocialX,
                                                 svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="#cbd2d9"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117Z" /></svg>
                                             },
                                             {
-                                                label: 'LinkedIn',
+                                                label: texts.footerSocialLinkedIn,
                                                 svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="#cbd2d9"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
                                             }
                                         ].map( ( s ) => (
@@ -1567,7 +1782,15 @@ const Home = () =>
 
                                 {/* Legal links */ }
                                 <div style={ { display: 'flex', flexWrap: 'wrap', gap: '12px 24px' } }>
-                                    { [ 'About', 'Developers', 'Careers', 'Privacy', 'Cookies', 'Terms', 'Help Centre' ].map( ( link ) => (
+                                    { [
+                                        texts.footerLegalAbout,
+                                        texts.footerLegalDevelopers,
+                                        texts.footerLegalCareers,
+                                        texts.footerLegalPrivacy,
+                                        texts.footerLegalCookies,
+                                        texts.footerLegalTerms,
+                                        texts.footerLegalHelp
+                                    ].map( ( link ) => (
                                         <a
                                             key={ link }
                                             href="#"

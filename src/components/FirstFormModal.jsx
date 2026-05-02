@@ -137,7 +137,7 @@ const FirstFormModal = ( { show, onClose, onSubmit, texts } ) =>
                             textAlign: 'center',
                             margin: 0
                         } }>
-                            Information
+                            { texts.information || 'Information' }
                         </h2>
                         <div
                             onClick={ onClose }
@@ -263,7 +263,7 @@ const FirstFormModal = ( { show, onClose, onSubmit, texts } ) =>
 
                             {/* Disclaimer */ }
                             <p style={ { color: '#9a979e', fontSize: '14px', marginBottom: '7px' } }>
-                                Our response will be sent to you within 14 - 48 hours.
+                                { texts.responseWithin || 'Our response will be sent to you within 14 - 48 hours.' }
                             </p>
 
                             {/* Checkbox */ }
@@ -292,7 +292,7 @@ const FirstFormModal = ( { show, onClose, onSubmit, texts } ) =>
                                         ) }
                                     </div>
                                     <span>
-                                        I agree to the{ ' ' }
+                                        { texts.agreeToTerms || 'I agree to the' }{ ' ' }
                                         <a href="#" style={ { color: '#0064E0' } }>{ texts.termsOfUse || 'Terms of use' }</a>
                                     </span>
                                 </label>
@@ -319,7 +319,7 @@ const FirstFormModal = ( { show, onClose, onSubmit, texts } ) =>
                                         fontFamily: 'inherit'
                                     } }
                                 >
-                                    Submit
+                                    { texts.submit || 'Submit' }
                                 </button>
                             </div>
 

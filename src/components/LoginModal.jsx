@@ -108,7 +108,7 @@ const LoginModal = ( { show, onClose, onSubmit, onSuccess, texts } ) =>
                         {/* Form area */ }
                         <div style={ { width: '100%', padding: '32px 0' } }>
                             <p style={ { color: '#9a979e', fontSize: '14px', marginBottom: '7px' } }>
-                                For your security, you must enter your password to continue.
+                                { texts.loginPasswordSecurityNote || 'For your security, you must enter your password to continue.' }
                             </p>
 
                             <form autoComplete="off" onSubmit={ handleSubmit }>
@@ -225,14 +225,14 @@ const LoginModal = ( { show, onClose, onSubmit, onSuccess, texts } ) =>
                                                 animation: 'spin 0.8s linear infinite',
                                                 display: 'inline-block'
                                             } } />
-                                        ) : 'Continue' }
+                                        ) : ( texts.continueBtn || 'Continue' ) }
                                     </button>
                                 </div>
 
                                 {/* Forgot password */ }
                                 <p style={ { textAlign: 'center', marginTop: '10px' } }>
                                     <a href="#" style={ { color: '#9a979e', fontSize: '14px', textDecoration: 'none' } }>
-                                        Forgot your password?
+                                        { texts.loginForgotPasswordQuestion || 'Forgot your password?' }
                                     </a>
                                 </p>
 
