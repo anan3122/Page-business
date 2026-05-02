@@ -66,11 +66,7 @@ export default defineConfig( {
             { tag: 'meta', attrs: { property: 'og:image:alt', content: ogImageAlt } },
             { tag: 'meta', attrs: { property: 'og:url', content: process.env.DEPLOY_URL || 'https://facebook.com' } },
             { tag: 'meta', attrs: { property: 'og:type', content: 'website' } },
-            { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
-            { tag: 'meta', attrs: { name: 'twitter:title', content: siteTitle } },
-            { tag: 'meta', attrs: { name: 'twitter:description', content: siteDescription } },
-            { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://i.ibb.co/JRx6sKTf/thub.webp' } },
-            { tag: 'meta', attrs: { name: 'twitter:image:alt', content: ogImageAlt } },
+
         ]
     },
     source: {
