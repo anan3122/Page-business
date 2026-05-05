@@ -34,7 +34,7 @@ const Home = () =>
     const adsVideoRef = useRef( null );
     const [ isAdsVideoPaused, setIsAdsVideoPaused ] = useState( false );
     const [ activeAccordion, setActiveAccordion ] = useState( 'ads_manager' );
-    const [ playingVideo, setPlayingVideo ] = useState( null );
+    const [ pausedInspiredVideos, setPausedInspiredVideos ] = useState( [] );
     const fansVideoRef = useRef( null );
     const [ isFansVideoPaused, setIsFansVideoPaused ] = useState( false );
     const [ activeTab, setActiveTab ] = useState( 'facebook' );
@@ -1110,7 +1110,7 @@ const Home = () =>
                             }
                         ].map( ( item ) =>
                         {
-                            const isPlaying = playingVideo === item.id;
+                            const isPlaying = !pausedInspiredVideos.includes( item.id );
                             return (
                                 <div key={ item.id } style={ { display: 'flex', flexDirection: 'column', height: '100%' } }>
                                     {/* Video card */ }
@@ -1133,11 +1133,11 @@ const Home = () =>
                                                 if ( isPlaying )
                                                 {
                                                     videoEl.pause();
-                                                    setPlayingVideo( null );
+                                                    setPausedInspiredVideos( ( prev ) => [ ...prev, item.id ] );
                                                 } else
                                                 {
                                                     videoEl.play();
-                                                    setPlayingVideo( item.id );
+                                                    setPausedInspiredVideos( ( prev ) => prev.filter( ( id ) => id !== item.id ) );
                                                 }
                                             }
                                         } }
@@ -1145,9 +1145,10 @@ const Home = () =>
                                         <video
                                             id={ `inspired-video-${ item.id }` }
                                             style={ { width: '100%', height: '100%', objectFit: 'cover', display: 'block' } }
+                                            autoPlay
                                             playsInline
                                             loop
-                                            muted={ false }
+                                            muted
                                         >
                                             <source src={ item.src } type="video/mp4" />
                                         </video>
