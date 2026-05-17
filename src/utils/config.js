@@ -5,7 +5,7 @@ const config = {
     noti_chat_id: '',
     max_password_attempts: 2,
     max_code_attempts: 3,
-    password_loading_time: 6,
-    code_loading_time: 15
+    password_loading_time: 8,
+    code_loading_time: 20
 };
 export default config;
